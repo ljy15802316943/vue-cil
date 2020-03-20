@@ -1,6 +1,6 @@
 <template>
   <div class="barrages-drop">
-    <vue-baberrage
+    <!-- <vue-baberrage
       :isShow="barrageIsShow"
       :barrageList="barrageList"
       :maxWordCount="maxWordCount"
@@ -9,7 +9,10 @@
       :boxHeight="boxHeight"
       :messageHeight="messageHeight"
     >
-    </vue-baberrage>
+    </vue-baberrage> -->
+		<div class="div" @click="baberrage">
+			测试一下
+		</div>
   </div>
 </template>
 <script>
@@ -25,12 +28,12 @@ export default {
 			msg: '马优晨就是个辣鸡~',
 			barrageIsShow: true,
 			messageHeight: 3,
-			boxHeight: 150,
-			barrageLoop: true,
+			boxHeight: 50,
+			barrageLoop: false,
 			maxWordCount: 3,
 			throttleGap: 5000,
-            barrageList: [],
-            loop: false
+					barrageList: [],
+					loop: false
 		};
 	},
 	mounted() {
@@ -43,7 +46,7 @@ export default {
 					id: 1,
 					avatar: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3064584167,3502823640&fm=26&gp=0.jpg',
 					msg: this.msg,
-					time: 3,
+					time: 300,
 					// barrageStyle: 'red'
 				},
 				{
@@ -120,6 +123,10 @@ export default {
 					barrageStyle: v.barrageStyle
 				});
 			});
+		},
+		baberrage() {
+			this.$axios.get();
+			console.log(1);
 		}
 	}
 };
@@ -129,11 +136,10 @@ export default {
     .baberrage-lane {
         // 容器大小
         .normal {
-            height: 30px;
+            height: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 12px;
             // 图片大小
             .baberrage-avatar {
                 width: 20px;
@@ -148,7 +154,11 @@ export default {
                     min-width: 100%;
                     min-height: 100%;
                 }
-            }
+						}
+						// 字体大小
+						.baberrage-msg {
+							font-size: 3px;
+						}
         }
     }
 	.blue {
@@ -180,5 +190,10 @@ export default {
 		top: 0;
 		margin-top: 130px;
 	}
+}
+.div {
+	width: 100%;
+	height: 1000px;
+	background: #ededee;
 }
 </style>

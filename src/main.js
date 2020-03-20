@@ -6,6 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+// 配置axios
+import axios from './assets/api';
+Vue.prototype.$axios = axios; //绑定到vue原型
+
 // 弹幕插件
 import { vueBaberrage } from 'vue-baberrage'
 Vue.use(vueBaberrage);
@@ -14,10 +18,6 @@ import store from './vuex/store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-// Vue.component('Users', Users) 全局组件
-
-// 配置路由
-
 
 /* eslint-disable no-new */
 new Vue({
